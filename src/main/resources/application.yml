@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: group-id
+      auto-offset-reset: earliest
+    producer:
+        acks: -1
+        retries: 1
+        properties:
+            "[enable.idempotence]": true
+            "[max.in.flight.requests.per.connection]": 5
+  application:
+    name: java-kafka
+
+application:
+  queue:
+    kafka:
+      test-topic: kafka-topic
